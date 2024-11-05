@@ -90,4 +90,22 @@ app.get("/janken", (req, res) => {
   res.render( 'janken', display );
 });
 
+app.get("/agecheck", (req, res) => {
+  const age = Number(req.query.age);
+  let message = '';
+
+  if (age < 13) {
+    message = "あなたは子供です！";
+  } else if (age < 20) {
+    message = "あなたは未成年です！";
+  } else if (age < 65) {
+    message = "あなたは大人です！";
+  } else {
+    message = "あなたは高齢者です！";
+  }
+
+  res.send({ age, message });
+});
+
+
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
