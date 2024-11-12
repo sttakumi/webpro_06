@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>挨拶メッセージ</title>
+</head>
+<body>
+  <h1>挨拶メッセージ</h1>
+  <button onclick="getHello1()">Hello1のメッセージを表示</button>
+  <button onclick="getHello2()">Hello2のメッセージを表示</button>
+
+
+  <p id="greet1"></p>
+  <p id="greet2"></p>
+
+  <script>
+    function getHello1() {
+      fetch("/hello1")
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("greet1").textContent = `メッセージ1: ${data.greet1}`;
+          document.getElementById("greet2").textContent = `メッセージ2: ${data.greet2}`;
+        })
+        .catch(error => {
+          console.error("エラー:", error);
+          document.getElementById("greet1").textContent = "エラーが発生しました。";
+        });
+    }
+
+    function getHello2() {
+      fetch("/hello2")
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("greet1").textContent = `メッセージ1: ${data.greet1}`;
+          document.getElementById("greet2").textContent = `メッセージ2: ${data.greet2}`;
+        })
+        .catch(error => {
+          console.error("エラー:", error);
+          document.getElementById("greet1").textContent = "エラーが発生しました。";
+        });
+    }
+  </script>
+</body>
+</html>

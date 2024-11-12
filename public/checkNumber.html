@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>奇数・偶数判定</title>
+</head>
+<body>
+  <h1>奇数・偶数判定</h1>
+
+
+  <label for="number">数値を入力してください:</label>
+  <input type="number" id="number" required>
+  <button onclick="checkNumber()">判定</button>
+
+
+  <h2>判定結果</h2>
+  <p id="result-number"></p>
+  <p id="result-message"></p>
+
+  <script>
+    function checkNumber() {
+      const number = document.getElementById("number").value;
+      const url = `/checkNumber?number=${number}`;
+
+     
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+
+          document.getElementById("result-number").textContent = `入力された数値: ${data.number}`;
+          document.getElementById("result-message").textContent = `判定: ${data.message}`;
+        })
+        .catch(error => {
+          console.error("エラー:", error);
+          document.getElementById("result-message").textContent = "エラーが発生しました。";
+        });
+    }
+  </script>
+</body>
+</html>

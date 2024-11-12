@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>年齢チェック</title>
+</head>
+<body>
+  <h1>年齢チェック</h1>
+  
+  <!-- 年齢入力フォーム -->
+  <label for="age">年齢を入力してください:</label>
+  <input type="number" id="age" name="age" required>
+  <button onclick="checkAge()">確認</button>
+
+  <h2>結果</h2>
+  <p id="result-age"></p>
+  <p id="result-message"></p>
+
+  <script>
+    function checkAge() {
+      const age = document.getElementById("age").value;
+
+      
+      fetch(`/agecheck?age=${age}`)
+        .then(response => response.json())
+        .then(data => {
+        
+          document.getElementById("result-age").textContent = `年齢: ${data.age}`;
+          document.getElementById("result-message").textContent = `メッセージ: ${data.message}`;
+        })
+        .catch(error => {
+          console.error("エラー:", error);
+          document.getElementById("result-message").textContent = "エラーが発生しました。";
+        });
+    }
+  </script>
+</body>
+</html>

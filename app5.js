@@ -7,12 +7,13 @@ app.use("/public", express.static(__dirname + "/public"));
 app.get("/hello1", (req, res) => {
   const message1 = "Hello world";
   const message2 = "Bon jour";
-  res.render('show', { greet1:message1, greet2:message2});
+  res.json({ greet1: message1, greet2: message2 });
 });
 
 app.get("/hello2", (req, res) => {
-  res.render('show', { greet1:"Hello world", greet2:"Bon jour"});
+  res.json({ greet1: "Hello world", greet2: "Bon jour" });
 });
+
 
 app.get("/icon", (req, res) => {
   res.render('icon', { filename:"./public/Apple_logo_black.svg", alt:"Apple Logo"});
@@ -21,11 +22,18 @@ app.get("/icon", (req, res) => {
 app.get("/luck", (req, res) => {
   const num = Math.floor( Math.random() * 6 + 1 );
   let luck = '';
-  if( num==1 ) luck = '大吉';
-  else if( num==2 ) luck = '中吉';
-  console.log( 'あなたの運勢は' + luck + 'です' );
-  res.render( 'luck', {number:num, luck:luck} );
+  if (num == 1) luck = '大吉';
+  else if (num == 2) luck = '中吉';
+  else if (num == 3) luck = '小吉';
+  else if (num == 4) luck = '吉';
+  else if (num == 5) luck = '凶';
+  else luck = '大凶';
+
+  console.log('あなたの運勢は' + luck + 'です');
+
+  res.json({ number: num, luck: luck });
 });
+
 
 app.get("/janken", (req, res) => {
   let hand = req.query.hand;
@@ -38,8 +46,7 @@ app.get("/janken", (req, res) => {
   if( num==1 ) cpu = 'グー';
   else if( num==2 ) cpu = 'チョキ';
   else cpu = 'パー';
-  // ここに勝敗の判定を入れる
-  // 今はダミーで人間の勝ちにしておく
+ 
   if(cpu=='グー' && hand=='パー'){
     judgement = '勝ち';
     win += 1;
@@ -90,6 +97,8 @@ app.get("/janken", (req, res) => {
   res.render( 'janken', display );
 });
 
+
+
 app.get("/agecheck", (req, res) => {
   const age = Number(req.query.age);
   let message = '';
@@ -104,8 +113,27 @@ app.get("/agecheck", (req, res) => {
     message = "あなたは高齢者です！";
   }
 
-  res.send({ age, message });
+
+  res.json({ age, message });
 });
+
+app.get("/checkNumber", (req, res) => {
+  const number = Number(req.query.number);
+  let responseMessage = '';
+
+  if (number % 2 === 0) {
+    responseMessage = "偶数です。";
+  } else {
+    responseMessage = "奇数です。";
+  }
+
+
+  res.json({ number, message: responseMessage });
+});
+
+
+
+
 
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
