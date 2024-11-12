@@ -27,17 +27,17 @@ views/checkNumber.ejs | 奇数・偶数判定のテンプレートファイル|
 
 ## 機能ごとの説明と使用手順
 ### 挨拶メッセージ
-サーバーを起動し, http://localhost:8080/public/hello.html　にアクセスすることでユーザーに "Hello world"と"Bon jour"を表示する.
+サーバーを起動し, 「http://localhost:8080/public/hello.html」　にアクセスすることでユーザーに "Hello world"と"Bon jour"を表示する.
 ### アイコン画面表示
-サーバーを起動し, http://localhost:8080/public/Apple_logo_black.svg　にアクセスすることでユーザーに Appleロゴのアイコン画像が表示される.
+サーバーを起動し, 「http://localhost:8080/public/Apple_logo_black.svg」　にアクセスすることでユーザーに Appleロゴのアイコン画像が表示される.
 ### 運勢占い
-サーバーを起動し, http://localhost:8080/public/luck.html　にアクセスして「運勢を占う」を押すことで運勢が表示される.
+サーバーを起動し, 「http://localhost:8080/public/luck.html」　にアクセスして「運勢を占う」を押すことで運勢が表示される.
 ### じゃんけん
-サーバーを起動し, http://localhost:8080/public/janken.html　にアクセスしてグー, チョキ, パーのいずれかを選択することで勝敗が表示される.
+サーバーを起動し, 「http://localhost:8080/public/janken.html」　にアクセスしてグー, チョキ, パーのいずれかを選択することで勝敗が表示される.
 ### 年齢チェック
-サーバーを起動し, http://localhost:8080/public/agecheck.html　にアクセスして年齢を入力することで, その年齢に応じたメッセージが表示される.
+サーバーを起動し, 「http://localhost:8080/public/agecheck.html」　にアクセスして年齢を入力することで, その年齢に応じたメッセージが表示される.
 ###　奇数・偶数判定
-サーバーを起動し, http://localhost:8080/public/checkNumber.html　にアクセスして数値を入力することで, その数値が奇数なのか偶数なのかが表示される.
+サーバーを起動し, 「http://localhost:8080/public/checkNumber.html」　にアクセスして数値を入力することで, その数値が奇数なのか偶数なのかが表示される.
 
 
 
