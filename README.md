@@ -3,7 +3,7 @@
 ##　起動方法
 Node.js と npm がインストールされていることを確認して, app5.js ファイルがあるディレクトリでnode app5.jsを実行してサーバーを起動させる.その後, ブラウザで http://localhost:8080/public/~.html にアクセスすることで、アプリケーションの機能を利用できる.
 ## Gitによるファイル管理
-git add .
+git add .\\
 git commit -am'変更しました'
 git push  
 トークン名
@@ -35,8 +35,8 @@ views/checkNumber.ejs | 奇数・偶数判定のテンプレートファイル|
 にアクセスすることでユーザーに Appleロゴのアイコン画像が表示される.
 
 ### 運勢占い
-サーバーを起動し, http://localhost:8080/public/luck.html　にアクセスして
-「運勢を占う」を押すことで運勢が表示される.
+サーバーを起動し, http://localhost:8080/public/luck.html
+にアクセスして「運勢を占う」を押すことで運勢が表示される.
 
 ### じゃんけん
 サーバーを起動し, http://localhost:8080/public/janken.html　
