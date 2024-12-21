@@ -56,32 +56,79 @@ views/checkNumber.ejs | 奇数・偶数判定のテンプレートファイル|
 にアクセスして数値を入力することで, その数値が奇数なのか偶数なのかが表示される.
 
 
-
-
-```javascript
-console.log( 'Hello' );
-```
-
-
-
-
-
-```mermaid
-flowchart TD;
-開始 --> 終了;
-```
+## じゃんけんのフローチャート
 ```mermaid
 flowchart TD;
 
 start["開始"];
 end1["終了"]
-if{"条件に合うか"}
-win["勝ち"]
-loose["負け"]
+if{"じゃんけんぽん"}
+yes["勝ち"]
+no1["負け"]
+cnt["勝利カウント"]
+retray["もう一戦?"]
+no2["やめる"]
+yes2["続ける"]
+battle["試合数カウント"]
 
 start --> if
-if -->|yes| win
-win --> end1
-if -->|no| loose
-loose --> end1
+if -->|yes| yes
+yes --> cnt
+
+if -->|no| no1
+no1 --> if
+no1 --> battle
+
+cnt --> battle
+
+
+battle --> retray
+retray --> yes2 
+retray --> no2 
+yes2 --> if
+no2 --> end1
 ```
+
+## 年齢チェックのフローチャート
+
+```mermaid
+flowchart TD;
+
+start["開始"];
+end1["終了"]
+if{"年齢を入力"}
+
+
+start --> if
+if -->|1~12| あなたは子供です!
+ -->end1
+if -->|13~19| あなたは未成年です!
+ -->end1
+if -->|20~64| あなたは大人です!
+ -->end1
+if -->|65~| あなたは高齢者です!
+ -->end1
+
+
+```
+
+## 奇数・偶数判定のフローチャート
+```mermaid
+flowchart TD;
+
+start["開始"];
+end1["終了"]
+if{"数字を入力"}
+yes["奇数"]
+no1["偶数"]
+
+
+start --> if
+if -->|2n| no1
+ --> end1
+if -->|2n+1| yes
+yes --> end1
+
+```
+
+
