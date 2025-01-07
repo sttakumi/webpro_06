@@ -1,5 +1,17 @@
 const express = require("express");
 const app = express();
+const express = require('express');
+const PORT = 8080;
+
+// 静的ファイルを提供
+app.use(express.static('public'));
+
+app.listen(PORT, () => {
+    console.log(`Server is running at http://localhost:${PORT}`);
+});
+
+
+
 
 app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
@@ -26,5 +38,6 @@ app.get("/luck", (req, res) => {
   console.log( 'あなたの運勢は' + luck + 'です' );
   res.render( 'luck', {number:num, luck:luck} );
 });
+
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
